@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="bow_card_project" uuid="4abd444f-cb8f-4a93-a63f-45259928f983">
-      <driver-ref>mariadb</driver-ref>
+    <data-source source="LOCAL" name="riczwmrj@drona.db.elephantsql.com" uuid="faf1ec00-a94b-4e7c-a2c1-6bd9634421b8">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://192.168.0.241:3306/bow_card_project</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://drona.db.elephantsql.com/riczwmrj</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -15,6 +15,16 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as per your requirements */
+}
+
+.centered-input {
+  /* Apply any additional styles you need for the input element */
+}
 
 body {
   color: rgb(var(--foreground-rgb));

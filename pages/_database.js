@@ -1,33 +1,28 @@
-// Code to connect to the database.
-const mysql = require('mysql2');
-import dbconfig from 'dbconfig.json'
+import postgres from 'postgres'
+import dbconfig from 'dbconfig.json';
 
-const pool = mysql.createPool({
-    host: dbconfig.hostip,
-    user: dbconfig.username,
-    password: dbconfig.password,
-    database: dbconfig.database,
-    waitForConnections: true,
-    connectionLimit: 10,
-    maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`
-    idleTimeout: 60000, // idle connections timeout, in milliseconds, the default value 60000
-    queueLimit: 0
-});
+const sql = postgres({url: dbconfig.url})
 
-const connection = pool.promise();
+export default sql
 
-export function checkCode(code) {
-    connection.query(
-        'SELECT * FROM `general_data`',
-        function(err, results) {
-            console.log(results);
-            if (results.includes(code)) {
-                console.log("code found");
-                return true;
-            } else {
-                console.log("no code found");
-                return false;
-            }
+export async function checkCode(code) {
+    try {
+        const connection = await pool.getConnection();
+        const [results] = await connection.query('SELECT * FROM `general_data`');
+        connection.release();
+
+        console.log(results);
+
+        if (results.includes(code)) {
+            console.log('Code found');
+            return true;
+        } else {
+            console.log('No code found');
+            return false;
         }
-    );
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
 }
+

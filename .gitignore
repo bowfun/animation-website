@@ -35,4 +35,5 @@ yarn-error.log*
 next-env.d.ts
 
 # Database Credentials
-dbconfig.json
+# Uncomment below before publishing
+#dbconfig.json
