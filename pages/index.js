@@ -2,9 +2,21 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import bowcard_logo from '../public/bowcards-logo.png'
 const inter = Inter({ subsets: ['latin'] })
-import { checkCode } from './_database.js'
 import { useState } from 'react';
 import textbox_styles from 'styles/TextBox.module.css';
+import axios from 'axios';
+
+const sendDataToServer = async () => {
+    const dataToSend = { key: 'value' };
+
+    try {
+        await axios.post('/api/myEndpoint', dataToSend);
+        console.log('Data sent to server successfully!');
+    } catch (error) {
+        console.error('Error sending data to server:', error);
+    }
+};
+
 
 export default function Home() {
   return (
@@ -14,8 +26,8 @@ export default function Home() {
         <Image
             src={bowcard_logo}
             alt="BowCards Logo"
-            width={300}
-            height={100}
+            width={600}
+            height={200}
         />
           <div>
               <CodeBox />
@@ -28,13 +40,12 @@ function CodeBox() {
     const [code, setCode] = useState("");
     const handleSubmit = (event) => {
         event.preventDefault();
-        checkCode(`${code}`)
-            .then((result) => {
-                console.log(result);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        const doesCodeExist = checkCode(`${code}`)
+        if (doesCodeExist == true) {
+            alert("Your code was found in the database.")
+        } else {
+            alert("Your code was not found in the database.")
+        }
     }
     return (
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
