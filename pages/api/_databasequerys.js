@@ -8,3 +8,11 @@ async function checkCode(code) {
         return false
     }
 }
+export default function myEndpointHandler(req, res) {
+    const { key } = req.body;
+    // Process the received data server-side
+
+    const dataToSend = { message: 'Data processed on the server' };
+    // Send back the data to the client
+    res.status(200).json(dataToSend);
+}

@@ -10,12 +10,16 @@ const sendDataToServer = async () => {
     const dataToSend = { key: 'value' };
 
     try {
-        await axios.post('/api/myEndpoint', dataToSend);
-        console.log('Data sent to server successfully!');
+        const response = await axios.post('/api/myEndpoint', dataToSend);
+        const dataFromServer = response.data;
+        // Use the dataFromServer received from the API
+        console.log('Data from server:', dataFromServer);
     } catch (error) {
         console.error('Error sending data to server:', error);
     }
 };
+
+
 
 
 export default function Home() {
