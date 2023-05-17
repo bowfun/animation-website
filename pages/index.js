@@ -6,22 +6,6 @@ import { useState } from 'react';
 import textbox_styles from 'styles/TextBox.module.css';
 import axios from 'axios';
 
-const sendDataToServer = async () => {
-    const dataToSend = { key: 'value' };
-
-    try {
-        const response = await axios.post('/api/myEndpoint', dataToSend);
-        const dataFromServer = response.data;
-        // Use the dataFromServer received from the API
-        console.log('Data from server:', dataFromServer);
-    } catch (error) {
-        console.error('Error sending data to server:', error);
-    }
-};
-
-
-
-
 export default function Home() {
   return (
       <main
@@ -42,13 +26,20 @@ export default function Home() {
 
 function CodeBox() {
     const [code, setCode] = useState("");
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const doesCodeExist = checkCode(`${code}`)
-        if (doesCodeExist == true) {
-            alert("Your code was found in the database.")
-        } else {
-            alert("Your code was not found in the database.")
+        const dataToSend = { code:`${code}` };
+        try {
+            const response = await axios.post('http://localhost:3000/api/checkcode', dataToSend);
+            const dataFromServer = response.data;
+            // Use the dataFromServer received from the API
+            if (dataFromServer.exists === true) {
+                alert("The code was found!");
+            } else {
+                alert("This code couldn't be found.");
+            }
+        } catch (error) {
+            console.error('Error sending data to server:', error);
         }
     }
     return (
