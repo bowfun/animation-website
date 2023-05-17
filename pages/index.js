@@ -34,7 +34,9 @@ function CodeBox() {
             const dataFromServer = response.data;
             // Use the dataFromServer received from the API
             if (dataFromServer.exists === true) {
-                alert("The code was found!");
+                const currentURL = window.location.href;
+                const viewURL = currentURL + "/view?code=" + code;
+                window.location.href = viewURL;
             } else {
                 alert("This code couldn't be found.");
             }

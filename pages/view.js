@@ -11,11 +11,11 @@ import id_1 from '../public/animations/id_1.gif';
 
 export default function ViewSite() {
     const router = useRouter();
-    const { query } = router;
-    const { code } = query;
+    const { code } = router;
     let animation_id;
-    let animation_name;
-    const dataToSend = { code: `${code}` };
+    console.log(code)
+    const dataToSend = { code:`${code}` };
+    console.log(dataToSend)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -50,7 +50,7 @@ export default function ViewSite() {
             className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
         >
             <Image src={animation_id} alt="BowCards Logo" width={300} height={125} />
-            <h1>{animation_name}</h1>
+
         </main>
     );
 }

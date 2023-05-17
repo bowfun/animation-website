@@ -31,6 +31,5 @@ export default async function myEndpointHandler(req, res) {
     const dataToSend = { animation_id: animationIDsend };
 
     // Send back the data to the client
-    console.log(dataToSend)
     res.status(200).json(dataToSend);
 }
