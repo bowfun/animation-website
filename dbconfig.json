@@ -1,7 +1,3 @@
 {
-  "hostip": "drona.db.elephantsql.com",
-  "username": "riczwmrj",
-  "password": "AM8pJ8zgoUZFSgsGlLvit3QdeneGpI4i",
-  "database": "riczwmrj",
-  "url": "postgres://riczwmrj:AM8pJ8zgoUZFSgsGlLvit3QdeneGpI4i@drona.db.elephantsql.com/riczwmrj"
+  "url": "postgres://riczwmrj:QbzRJHZe5rzsdThvIKjIc15ovvwdU6iw@drona.db.elephantsql.com/riczwmrj"
 }
