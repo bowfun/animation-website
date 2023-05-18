@@ -30,11 +30,11 @@ function CodeBox() {
         event.preventDefault();
         const dataToSend = { code:`${code}` };
         try {
-            const response = await axios.post('http://localhost:3000/api/checkcode', dataToSend);
+            const currentURL = window.location.href;
+            const response = await axios.post(currentURL + '/api/checkcode', dataToSend);
             const dataFromServer = response.data;
             // Use the dataFromServer received from the API
             if (dataFromServer.exists === true) {
-                const currentURL = window.location.href;
                 const viewURL = currentURL + "/view?code=" + code;
                 window.location.href = viewURL;
             } else {

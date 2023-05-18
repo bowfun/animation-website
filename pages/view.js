@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 import id_0 from '../public/animations/id_0.gif';
 import id_1 from '../public/animations/id_1.gif';
 import id_2 from '../public/animations/id_2.gif';
+import {data} from "autoprefixer";
 
 export default function ViewSite() {
     const router = useRouter();
@@ -20,10 +21,7 @@ export default function ViewSite() {
         const fetchData = async () => {
             const dataToSend = { code: `${code}` };
             try {
-                const response = await axios.post(
-                    'http://localhost:3000/api/getanimationid',
-                    dataToSend
-                );
+                const response = await axios.post(window.location.origin + '/api/getanimationid', dataToSend);
                 const dataFromServer = response.data;
                 if (dataFromServer && dataFromServer.animation_id !== null) {
                     setAnimationId(dataFromServer.animation_id);
@@ -96,3 +94,4 @@ export default function ViewSite() {
         </main>
     );
 }
+
