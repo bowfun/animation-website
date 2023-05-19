@@ -12,6 +12,8 @@ import id_4 from '../public/animations/id_4.gif';
 import id_5 from '../public/animations/id_5.gif';
 import id_6 from '../public/animations/id_6.gif';
 import id_7 from '../public/animations/id_7.gif';
+import id_8 from '../public/animations/id_8.gif';
+import id_9 from '../public/animations/id_9.gif';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -87,6 +89,10 @@ export default function ViewSite() {
             return id_6;
         } else if (animationId === 7) {
             return id_7;
+        } else if (animationId === 8) {
+            return id_8;
+        } else if (animationId === 9) {
+            return id_9;
         }
         return null;
     };
@@ -100,6 +106,8 @@ export default function ViewSite() {
         const name_5 = 'Spinning Laser Disc';
         const name_6 = 'Firework Show';
         const name_7 = 'Bouncing Beach Ball';
+        const name_8 = 'Rising Sun'
+        const name_9 = 'Mango Smoothie';
         if (animationId === 0) {
             return name_0;
         } else if (animationId === 1) {
@@ -116,6 +124,10 @@ export default function ViewSite() {
             return name_6;
         } else if (animationId === 7) {
             return name_7;
+        } else if (animationId === 8) {
+            return name_8;
+        } else if (animationId === 9) {
+            return name_9;
         }
         return null;
     };
@@ -129,6 +141,8 @@ export default function ViewSite() {
         const desc_5 = 'This is a spinning disc. There are laser effects on the sides of the disc, which spins. It could represent spinning into a new day.';
         const desc_6 = 'This is a celebratory firework show. It could represent going to a 4th of July party.';
         const desc_7 = 'This is a beach ball that bounces! It could represent going to a beach on a wonderful summer day.';
+        const desc_8 = 'This is a rising sun, marking the start of a new day. It could represent moving on. Sunrises are considered peaceful times by most people.';
+        const desc_9 = 'This is a fresh mango smoothie, made by the beach. It could represent going to the beach on a warm summer day.';
         if (animationId === 0) {
             return desc_0;
         } else if (animationId === 1) {
@@ -145,6 +159,10 @@ export default function ViewSite() {
             return desc_6;
         } else if (animationId === 7) {
             return desc_7;
+        } else if (animationId === 8) {
+            return desc_8;
+        } else if (animationId === 9) {
+            return desc_9;
         }
         return null;
     };
