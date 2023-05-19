@@ -1,11 +1,9 @@
-// noinspection SpellCheckingInspection
-
 import { Client } from 'pg';
-import dbconfig from '../../dbconfig.json';
 
 async function getAnimationID(code) {
+    const dbURL = process.env.BOWCARDS_POSTGRES_URL
     const client = new Client({
-        connectionString: dbconfig.url,
+        connectionString: dbURL,
     });
 
     try {
