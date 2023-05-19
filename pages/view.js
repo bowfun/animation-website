@@ -10,6 +10,8 @@ import id_2 from '../public/animations/id_2.gif';
 import id_3 from '../public/animations/id_3.gif';
 import id_4 from '../public/animations/id_4.gif';
 
+const inter = Inter({ subsets: ['latin'] });
+
 export default function ViewSite() {
     const router = useRouter();
     const { code } = router.query;
@@ -24,7 +26,7 @@ export default function ViewSite() {
         const fetchData = async () => {
             const dataToSend = { code: `${code}` };
             try {
-                const response = await axios.post(window.location.origin + '/api/getanimationid', dataToSend);
+                const response = await axios.post(`${window.location.origin}/api/getanimationid`, dataToSend);
                 const dataFromServer = response.data;
                 if (dataFromServer && dataFromServer.animation_id !== null) {
                     setAnimationId(dataFromServer.animation_id);
@@ -41,26 +43,27 @@ export default function ViewSite() {
 
     useEffect(() => {
         const handleResize = () => {
-            const windowWidth = window.innerWidth;
-            if (windowWidth <= 480) {
-                setImageWidth(200);
-                setImageHeight(83);
-            } else if (windowWidth <= 768) {
+            const isMobileDevice = /Mobi|Android|iPad|iPhone|iPod|IEMobile|BlackBerry|Opera Mini/i.test(navigator.userAgent);
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            if (isMobileDevice) {
+                if (screenWidth < screenHeight) {
+                    setImageWidth(screenWidth * 0.9);
+                    setImageHeight(screenWidth * 0.9 * 0.4167);
+                } else {
+                    setImageWidth(screenHeight * 0.9 * 2.4);
+                    setImageHeight(screenHeight * 0.9);
+                }
+            } else {
                 setImageWidth(300);
                 setImageHeight(125);
-            } else {
-                // For tablet or computer
-                setImageWidth(400);
-                setImageHeight(167);
             }
         };
 
+        handleResize();
         window.addEventListener('resize', handleResize);
-        handleResize(); // Set initial values based on the window width
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const getAnimationSource = () => {
@@ -119,23 +122,17 @@ export default function ViewSite() {
     };
 
     return (
-        <main
-            className={`flex min-h-screen flex-col items-center justify-between p-64`}
-        >
+        <main className={`flex min-h-screen flex-col items-center justify-between p-8 ${inter.className}`}>
             {animationId !== null && (
-                <Image
-                    src={getAnimationSource()}
-                    alt="Custom Animation"
-                    width={imageWidth}
-                    height={imageHeight}
-                />
+                <>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+                    <div style={{ width: '100%', maxWidth: '90vw' }}>
+                        <Image src={getAnimationSource()} alt="Custom Animation" layout="responsive" width={imageWidth} height={imageHeight} />
+                    </div>
+                </>
             )}
-            {animationId !== null && (
-                <h1 style={{ fontSize: '24px' }}>{getAnimationName()}</h1>
-            )}
-            {animationId !== null && (
-                <p style={{ fontSize: '18px' }}>{getAnimationDesc()}</p>
-            )}
+            {animationId !== null && <h1 style={{ fontSize: '24px' }}>{getAnimationName()}</h1>}
+            {animationId !== null && <p style={{ fontSize: '18px' }}>{getAnimationDesc()}</p>}
         </main>
     );
 }
