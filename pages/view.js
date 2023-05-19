@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ['latin'] });
 import id_0 from '../public/animations/id_0.gif';
 import id_1 from '../public/animations/id_1.gif';
 import id_2 from '../public/animations/id_2.gif';
-import id_3 from '../public/animations/id_3.gif'
+import id_3 from '../public/animations/id_3.gif';
+import id_4 from '../public/animations/id_4.gif';
 
 export default function ViewSite() {
     const router = useRouter();
@@ -45,6 +46,8 @@ export default function ViewSite() {
             return id_2;
         } else if (animationId === 3) {
             return id_3;
+        } else if (animationId === 4) {
+            return id_4;
         }
         return null;
     };
@@ -53,6 +56,7 @@ export default function ViewSite() {
         const name_1 = "Spinning Water Bottle"
         const name_2 = "Skipping Rock"
         const name_3 = "Tunnel of Colors"
+        const name_4 = "Windy Balloon"
         if (animationId === 0) {
             return name_0;
         } else if (animationId === 1) {
@@ -61,6 +65,8 @@ export default function ViewSite() {
             return name_2;
         } else if (animationId === 3) {
             return name_3;
+        } else if (animationId === 4) {
+            return name_4;
         }
         return null;
     }
@@ -69,6 +75,7 @@ export default function ViewSite() {
         const desc_1 = "This is a spinning water bottle. Stay hydrated during the summer. It is symbolic for throwing a water bottle in the air and grabbing it."
         const desc_2 = "This is a skipping rock. The rock skips across the lake. It could be related to moving on."
         const desc_3 = "This is a tunnel of colors. It could represent going down a tube slide at a park or water park."
+        const desc_4 = "This is a balloon blowing in the wind. It is attached to a fence post. It could represent going to a carnival."
         if (animationId === 0) {
             return desc_0;
         } else if (animationId === 1) {
@@ -77,6 +84,8 @@ export default function ViewSite() {
             return desc_2;
         } else if (animationId === 3) {
             return desc_3;
+        } else if (animationId === 4) {
+            return desc_4;
         }
         return null;
     }
