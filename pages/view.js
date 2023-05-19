@@ -10,6 +10,8 @@ import id_2 from '../public/animations/id_2.gif';
 import id_3 from '../public/animations/id_3.gif';
 import id_4 from '../public/animations/id_4.gif';
 import id_5 from '../public/animations/id_5.gif';
+import id_6 from '../public/animations/id_6.gif';
+import id_7 from '../public/animations/id_7.gif';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -81,6 +83,10 @@ export default function ViewSite() {
             return id_4;
         } else if (animationId === 5) {
             return id_5;
+        } else if (animationId === 6) {
+            return id_6;
+        } else if (animationId === 7) {
+            return id_7;
         }
         return null;
     };
@@ -92,6 +98,8 @@ export default function ViewSite() {
         const name_3 = 'Tunnel of Colors';
         const name_4 = 'Windy Balloon';
         const name_5 = 'Spinning Laser Disc';
+        const name_6 = 'Firework Show';
+        const name_7 = 'Bouncing Beach Ball';
         if (animationId === 0) {
             return name_0;
         } else if (animationId === 1) {
@@ -104,6 +112,10 @@ export default function ViewSite() {
             return name_4;
         } else if (animationId === 5) {
             return name_5;
+        } else if (animationId === 6) {
+            return name_6;
+        } else if (animationId === 7) {
+            return name_7;
         }
         return null;
     };
@@ -114,7 +126,9 @@ export default function ViewSite() {
         const desc_2 = 'This is a skipping rock. The rock skips across the lake. It could be related to moving on.';
         const desc_3 = 'This is a tunnel of colors. It could represent going down a tube slide at a park or water park.';
         const desc_4 = 'This is a balloon blowing in the wind. It is attached to a fence post. It could represent going to a carnival.';
-        const desc_5 = 'This is a spinning disc. There are laser effects on the sides of the disc, which spins. It could represent spinning into a new day.'
+        const desc_5 = 'This is a spinning disc. There are laser effects on the sides of the disc, which spins. It could represent spinning into a new day.';
+        const desc_6 = 'This is a celebratory firework show. It could represent going to a 4th of July party.';
+        const desc_7 = 'This is a beach ball that bounces! It could represent going to a beach on a wonderful summer day.';
         if (animationId === 0) {
             return desc_0;
         } else if (animationId === 1) {
@@ -127,6 +141,10 @@ export default function ViewSite() {
             return desc_4;
         } else if (animationId === 5) {
             return desc_5;
+        } else if (animationId === 6) {
+            return desc_6;
+        } else if (animationId === 7) {
+            return desc_7;
         }
         return null;
     };

@@ -17,6 +17,7 @@ export default function Home() {
             width={600}
             height={200}
         />
+          <h1>SEIZURE WARNING: The animations can move very fast!</h1>
           <div>
               <CodeBox />
           </div>
