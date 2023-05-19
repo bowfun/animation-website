@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-const inter = Inter({ subsets: ['latin'] });
 
 import id_0 from '../public/animations/id_0.gif';
 import id_1 from '../public/animations/id_1.gif';
@@ -15,6 +14,9 @@ export default function ViewSite() {
     const router = useRouter();
     const { code } = router.query;
     const [animationId, setAnimationId] = useState(null);
+    const [imageWidth, setImageWidth] = useState(300);
+    const [imageHeight, setImageHeight] = useState(125);
+
     useEffect(() => {
         if (!code) {
             return;
@@ -37,6 +39,30 @@ export default function ViewSite() {
         fetchData();
     }, [router, code]);
 
+    useEffect(() => {
+        const handleResize = () => {
+            const windowWidth = window.innerWidth;
+            if (windowWidth <= 480) {
+                setImageWidth(200);
+                setImageHeight(83);
+            } else if (windowWidth <= 768) {
+                setImageWidth(300);
+                setImageHeight(125);
+            } else {
+                // For tablet or computer
+                setImageWidth(400);
+                setImageHeight(167);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Set initial values based on the window width
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     const getAnimationSource = () => {
         if (animationId === 0) {
             return id_0;
@@ -51,12 +77,13 @@ export default function ViewSite() {
         }
         return null;
     };
+
     const getAnimationName = () => {
-        const name_0 = "Spinning Color Wheel"
-        const name_1 = "Spinning Water Bottle"
-        const name_2 = "Skipping Rock"
-        const name_3 = "Tunnel of Colors"
-        const name_4 = "Windy Balloon"
+        const name_0 = 'Spinning Color Wheel';
+        const name_1 = 'Spinning Water Bottle';
+        const name_2 = 'Skipping Rock';
+        const name_3 = 'Tunnel of Colors';
+        const name_4 = 'Windy Balloon';
         if (animationId === 0) {
             return name_0;
         } else if (animationId === 1) {
@@ -69,13 +96,14 @@ export default function ViewSite() {
             return name_4;
         }
         return null;
-    }
+    };
+
     const getAnimationDesc = () => {
-        const desc_0 = "This is a spinning wheel of vibrant colors. It could symbolize a wheel or the top of a spinning umbrella."
-        const desc_1 = "This is a spinning water bottle. Stay hydrated during the summer. It is symbolic for throwing a water bottle in the air and grabbing it."
-        const desc_2 = "This is a skipping rock. The rock skips across the lake. It could be related to moving on."
-        const desc_3 = "This is a tunnel of colors. It could represent going down a tube slide at a park or water park."
-        const desc_4 = "This is a balloon blowing in the wind. It is attached to a fence post. It could represent going to a carnival."
+        const desc_0 = 'This is a spinning wheel of vibrant colors. It could symbolize a wheel or the top of a spinning umbrella.';
+        const desc_1 = 'This is a spinning water bottle. Stay hydrated during the summer. It is symbolic for throwing a water bottle in the air and grabbing it.';
+        const desc_2 = 'This is a skipping rock. The rock skips across the lake. It could be related to moving on.';
+        const desc_3 = 'This is a tunnel of colors. It could represent going down a tube slide at a park or water park.';
+        const desc_4 = 'This is a balloon blowing in the wind. It is attached to a fence post. It could represent going to a carnival.';
         if (animationId === 0) {
             return desc_0;
         } else if (animationId === 1) {
@@ -88,18 +116,18 @@ export default function ViewSite() {
             return desc_4;
         }
         return null;
-    }
+    };
 
     return (
         <main
-            className={`flex min-h-screen flex-col items-center justify-between p-64 ${inter.className}`}
+            className={`flex min-h-screen flex-col items-center justify-between p-64`}
         >
             {animationId !== null && (
                 <Image
                     src={getAnimationSource()}
                     alt="Custom Animation"
-                    width={300}
-                    height={125}
+                    width={imageWidth}
+                    height={imageHeight}
                 />
             )}
             {animationId !== null && (
@@ -111,4 +139,3 @@ export default function ViewSite() {
         </main>
     );
 }
-
