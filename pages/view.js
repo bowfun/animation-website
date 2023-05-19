@@ -9,6 +9,7 @@ import id_1 from '../public/animations/id_1.gif';
 import id_2 from '../public/animations/id_2.gif';
 import id_3 from '../public/animations/id_3.gif';
 import id_4 from '../public/animations/id_4.gif';
+import id_5 from '../public/animations/id_5.gif';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -78,6 +79,8 @@ export default function ViewSite() {
             return id_3;
         } else if (animationId === 4) {
             return id_4;
+        } else if (animationId === 5) {
+            return id_5;
         }
         return null;
     };
@@ -88,6 +91,7 @@ export default function ViewSite() {
         const name_2 = 'Skipping Rock';
         const name_3 = 'Tunnel of Colors';
         const name_4 = 'Windy Balloon';
+        const name_5 = 'Spinning Laser Disc';
         if (animationId === 0) {
             return name_0;
         } else if (animationId === 1) {
@@ -98,6 +102,8 @@ export default function ViewSite() {
             return name_3;
         } else if (animationId === 4) {
             return name_4;
+        } else if (animationId === 5) {
+            return name_5;
         }
         return null;
     };
@@ -108,6 +114,7 @@ export default function ViewSite() {
         const desc_2 = 'This is a skipping rock. The rock skips across the lake. It could be related to moving on.';
         const desc_3 = 'This is a tunnel of colors. It could represent going down a tube slide at a park or water park.';
         const desc_4 = 'This is a balloon blowing in the wind. It is attached to a fence post. It could represent going to a carnival.';
+        const desc_5 = 'This is a spinning disc. There are laser effects on the sides of the disc, which spins. It could represent spinning into a new day.'
         if (animationId === 0) {
             return desc_0;
         } else if (animationId === 1) {
@@ -118,6 +125,8 @@ export default function ViewSite() {
             return desc_3;
         } else if (animationId === 4) {
             return desc_4;
+        } else if (animationId === 5) {
+            return desc_5;
         }
         return null;
     };
