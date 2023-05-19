@@ -61,6 +61,7 @@ export default function ViewSite() {
             }
         };
 
+
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -122,11 +123,11 @@ export default function ViewSite() {
     };
 
     return (
-        <main className={`flex min-h-screen flex-col items-center justify-between p-8 ${inter.className}`}>
+        <main className={`flex min-h-screen flex-col items-center justify-between p-14 ${inter.className}`}>
             {animationId !== null && (
                 <>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-                    <div style={{ width: '100%', maxWidth: '90vw' }}>
+                    <div style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }}>
                         <Image src={getAnimationSource()} alt="Custom Animation" layout="responsive" width={imageWidth} height={imageHeight} />
                     </div>
                 </>
