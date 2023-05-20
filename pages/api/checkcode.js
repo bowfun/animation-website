@@ -7,8 +7,10 @@ async function checkCode(code) {
     });
 
     try {
+        if (code.length !== 16) {
+            return false;
+        }
         await client.connect();
-
         const query = 'SELECT code FROM general_data';
         const { rows } = await client.query(query);
 
