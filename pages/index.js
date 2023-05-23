@@ -29,14 +29,15 @@ function CodeBox() {
     const [code, setCode] = useState("");
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const dataToSend = { code:`${code}` };
+        const lowercaseCode = code.toLowerCase()
+        const dataToSend = { code:`${lowercaseCode}` };
         try {
             const currentURL = window.location.href;
             const response = await axios.post(currentURL + '/api/checkcode', dataToSend);
             const dataFromServer = response.data;
             // Use the dataFromServer received from the API
             if (dataFromServer.exists === true) {
-                const viewURL = currentURL + "/view?code=" + code;
+                const viewURL = currentURL + "/view?code=" + lowercaseCode;
                 window.location.href = viewURL;
             } else {
                 alert("This code couldn't be found.");
