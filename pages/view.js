@@ -17,7 +17,10 @@ import id_9 from '../public/animations/id_9.gif';
 import id_10 from '../public/animations/id_10.gif';
 
 const inter = Inter({ subsets: ['latin'] });
-
+export const metadata = {
+    title: 'Bow Cards - View',
+    description: 'Bow Cards page for viewing animations.',
+}
 export default function ViewSite() {
     const router = useRouter();
     const { code } = router.query;

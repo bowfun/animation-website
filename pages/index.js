@@ -6,6 +6,10 @@ import { useState } from 'react';
 import textbox_styles from 'styles/TextBox.module.css';
 import axios from 'axios';
 
+export const metadata = {
+    title: 'Bow Cards - Home',
+    description: 'Home page for Bow Cards.',
+}
 export default function Home() {
   return (
       <main
