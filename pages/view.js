@@ -14,6 +14,7 @@ import id_6 from '../public/animations/id_6.gif';
 import id_7 from '../public/animations/id_7.gif';
 import id_8 from '../public/animations/id_8.gif';
 import id_9 from '../public/animations/id_9.gif';
+import id_10 from '../public/animations/id_10.gif';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -93,6 +94,8 @@ export default function ViewSite() {
             return id_8;
         } else if (animationId === 9) {
             return id_9;
+        } else if (animationId === 10) {
+            return id_10;
         }
         return null;
     };
@@ -108,6 +111,7 @@ export default function ViewSite() {
         const name_7 = 'Bouncing Beach Ball';
         const name_8 = 'Rising Sun'
         const name_9 = 'Mango Smoothie';
+        const name_10 = 'Apple';
         if (animationId === 0) {
             return name_0;
         } else if (animationId === 1) {
@@ -128,6 +132,8 @@ export default function ViewSite() {
             return name_8;
         } else if (animationId === 9) {
             return name_9;
+        } else if (animationId === 10) {
+            return name_10;
         }
         return null;
     };
@@ -143,6 +149,7 @@ export default function ViewSite() {
         const desc_7 = 'This is a beach ball that bounces! It could represent going to a beach on a wonderful summer day.';
         const desc_8 = 'This is a rising sun, marking the start of a new day. It could represent moving on. Sunrises are considered peaceful times by most people.';
         const desc_9 = 'This is a fresh mango smoothie, made by the beach. It could represent going to the beach on a warm summer day.';
+        const desc_10 = 'This is a fresh apple gleaming in the sunlight. It could represent going to a park and getting an apple.'
         if (animationId === 0) {
             return desc_0;
         } else if (animationId === 1) {
@@ -163,6 +170,8 @@ export default function ViewSite() {
             return desc_8;
         } else if (animationId === 9) {
             return desc_9;
+        } else if (animationId === 10) {
+            return desc_10;
         }
         return null;
     };
