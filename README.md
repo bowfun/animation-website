@@ -1,9 +1,8 @@
 # Bow Cards Website
-This is the code for the Bow Cards website, a class project.
+This is the code for the Bow Cards website, a hobby project.
 
 ## Information
-This is a project by Blast Off Waters.
-This was made for our Sales Project in Creativity.
+This is a project made as a hobby project by Blast Off Waters CEO bowfun.
 
 ## Setup
 To use this site's code, add an environment variable to your server called ``BOWCARDS_POSTGRES_URL``. 
