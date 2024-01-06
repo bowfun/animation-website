@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
@@ -17,10 +18,6 @@ import id_9 from '../public/animations/id_9.gif';
 import id_10 from '../public/animations/id_10.gif';
 
 const inter = Inter({ subsets: ['latin'] });
-export const metadata = {
-    title: 'Bow Cards - View',
-    description: 'Bow Cards page for viewing animations.',
-}
 export default function ViewSite() {
     const router = useRouter();
     const { code } = router.query;
@@ -77,30 +74,7 @@ export default function ViewSite() {
     }, []);
 
     const getAnimationSource = () => {
-        if (animationId === 0) {
-            return id_0;
-        } else if (animationId === 1) {
-            return id_1;
-        } else if (animationId === 2) {
-            return id_2;
-        } else if (animationId === 3) {
-            return id_3;
-        } else if (animationId === 4) {
-            return id_4;
-        } else if (animationId === 5) {
-            return id_5;
-        } else if (animationId === 6) {
-            return id_6;
-        } else if (animationId === 7) {
-            return id_7;
-        } else if (animationId === 8) {
-            return id_8;
-        } else if (animationId === 9) {
-            return id_9;
-        } else if (animationId === 10) {
-            return id_10;
-        }
-        return null;
+      return `id_${animationId}`
     };
 
     const getAnimationName = () => {
