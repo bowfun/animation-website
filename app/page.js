@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
       <Image
-          src={bowcard_logo}
+          src={logo}
           alt="BowCards Logo"
           width={600}
           height={200}
@@ -27,11 +27,11 @@ export default function Home() {
 function CodeBox() {
   const router = useRouter();
   const [code, setCode] = useState("");
+  const [codeExists, setCodeExists] = useState();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const lowercaseCode = code.toLowerCase();
-    const [codeExists, setCodeExists] = useState();
     try {
       useEffect(() => {
         fetch(`${window.location.origin}/api/checkcode`, {
@@ -61,7 +61,7 @@ function CodeBox() {
         type="text"
         value={code}
         onChange={(e) => setCode(e.target.value)}
-        className={`text-black border-2 border-gray-400 rounded-lg pl-7`}
+        className={`text-black border-2 border-gray-400 rounded-lg px-2 mb-4`}
       />
       <input type="submit" value="Submit" className="centered-input self-center p-2 rounded-xl bg-sky-400 border-4 border-sky-600" />
     </form>
